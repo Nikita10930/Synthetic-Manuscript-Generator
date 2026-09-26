@@ -1,0 +1,276 @@
+# ============================================================
+# Synthetic Manuscript Generator
+# Main Configuration
+# ============================================================
+
+project:
+  name: "Synthetic Manuscript Generator"
+  version: "1.0"
+
+# ------------------------------------------------------------
+# Scripts
+# ------------------------------------------------------------
+
+scripts:
+  devanagari:
+    display_name: "Devanagari"
+    source_file: "data/source/devanagari.md"
+    font: "assets/fonts/NotoSansDevanagari[wdth,wght].ttf"
+
+  modi:
+    display_name: "Modi"
+    source_file: "data/source/modi.md"
+    font: "assets/fonts/NotoSansModi-Regular.ttf"
+
+  sharada:
+    display_name: "Sharada"
+    source_file: "data/source/sharada.md"
+    font: "assets/fonts/Sharada-SVG.ttf"
+
+
+# ------------------------------------------------------------
+# Dataset
+# ------------------------------------------------------------
+
+dataset:
+  images_per_script: 100
+
+  split:
+    train: 85
+    validation: 10
+    test: 5
+
+  seed: 42
+
+  output_dir: "data/output"
+
+
+# ------------------------------------------------------------
+# Manuscript Canvas
+# ------------------------------------------------------------
+
+canvas:
+  width: 1600
+  height: 1000
+
+  margin:
+    top: 90
+    bottom: 90
+    left: 100
+    right: 100
+
+
+# ------------------------------------------------------------
+# Manuscript Layout
+# ------------------------------------------------------------
+
+layout:
+  min_lines: 8
+  max_lines: 16
+
+  min_blocks: 1
+  max_blocks: 3
+
+  line_spacing: 18
+
+  horizontal_jitter: 3
+  vertical_jitter: 3
+
+  rotation:
+    min: -1.5
+    max: 1.5
+
+  side_text_probability: 0.25
+  marginal_note_probability: 0.20
+  section_marker_probability: 0.30
+  highlighted_text_probability: 0.15
+
+
+# ------------------------------------------------------------
+# Handwriting / Calligraphy Variation
+# ------------------------------------------------------------
+
+handwriting:
+  enabled: true
+
+  slant:
+    min: -3.0
+    max: 3.0
+
+  waviness:
+    enabled: true
+    amplitude: 2.5
+    frequency: 0.035
+
+  character_spacing:
+    min: -1
+    max: 3
+
+  baseline_variation:
+    min: -2
+    max: 2
+
+  stroke_variation:
+    min: 0.85
+    max: 1.15
+
+
+# ------------------------------------------------------------
+# Ink
+# ------------------------------------------------------------
+
+ink:
+  colors:
+    - [35, 25, 18]
+    - [48, 35, 25]
+    - [62, 45, 30]
+    - [75, 55, 38]
+
+  variation_strength: 0.18
+
+  opacity:
+    min: 0.78
+    max: 1.00
+
+  smudge_probability: 0.18
+  bleed_probability: 0.20
+  fade_probability: 0.15
+
+  smudge_strength: 0.35
+  bleed_strength: 0.25
+  fade_strength: 0.20
+
+
+# ------------------------------------------------------------
+# Manuscript Background
+# ------------------------------------------------------------
+
+background:
+  type: "aged_manuscript"
+
+  base_color:
+    min: [175, 145, 105]
+    max: [225, 205, 165]
+
+  texture_strength: 0.35
+
+  noise:
+    enabled: true
+    strength: 0.12
+
+  fibers:
+    enabled: true
+    density: 0.025
+
+  stains:
+    enabled: true
+    probability: 0.35
+    strength: 0.20
+
+  aging:
+    enabled: true
+    strength: 0.35
+
+  edges:
+    darkening: 0.20
+
+  folds:
+    enabled: true
+    probability: 0.25
+
+  warping:
+    enabled: true
+    strength: 0.08
+
+  curling:
+    enabled: true
+    probability: 0.15
+
+
+# ------------------------------------------------------------
+# Manuscript Type
+# ------------------------------------------------------------
+
+manuscript:
+  types:
+    - "palm_leaf"
+    - "aged_handmade_paper"
+
+  palm_leaf_probability: 0.50
+  handmade_paper_probability: 0.50
+
+
+# ------------------------------------------------------------
+# Decorative / Historical Elements
+# ------------------------------------------------------------
+
+decorations:
+  section_markers:
+    enabled: true
+
+  marginal_annotations:
+    enabled: true
+
+  highlighted_passages:
+    enabled: true
+
+  punctuation_variation:
+    enabled: true
+
+  decorative_marks:
+    enabled: true
+    probability: 0.15
+
+
+# ------------------------------------------------------------
+# Image Quality
+# ------------------------------------------------------------
+
+quality:
+  format: "PNG"
+  color_mode: "RGB"
+
+  jpeg_quality: 95
+
+  minimum_content_ratio: 0.08
+  maximum_content_ratio: 0.90
+
+  prevent_horizontal_overflow: true
+  prevent_vertical_overflow: true
+
+
+# ------------------------------------------------------------
+# Annotation
+# ------------------------------------------------------------
+
+annotations:
+  enabled: true
+
+  format: "md"
+
+  include:
+    - script
+    - split
+    - source_file
+    - image_file
+    - transcription
+
+
+# ------------------------------------------------------------
+# Reproducibility
+# ------------------------------------------------------------
+
+randomness:
+  seed: 42
+  deterministic: true
+
+
+# ------------------------------------------------------------
+# Debug / Preview
+# ------------------------------------------------------------
+
+debug:
+  enabled: false
+  save_intermediate: false
+
+  preview_count: 3
