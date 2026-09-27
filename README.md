@@ -1,3 +1,24 @@
+license: mit
+pretty_name: Synthetic Manuscript Generator
+tags:
+  - synthetic-data
+  - historical-manuscript
+  - handwriting
+  - devanagari
+  - modi
+  - sharada
+configs:
+  - config_name: devanagari
+    data_dir: devanagari
+  - config_name: modi
+    data_dir: modi
+  - config_name: sharada
+    data_dir: sharada
+---
+
+# Synthetic Manuscript Generator
+
+An automated Python pipeline...
 # Synthetic Manuscript Generator
 
 An automated Python pipeline for generating realistic synthetic historical manuscript folio images from raw Unicode text, together with synchronized Markdown transcription annotations.
